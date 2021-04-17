@@ -36,7 +36,6 @@ chardet==3.0.4
 chromedriver==2.24.1
 Click==7.0
 cloudpickle==1.2.2
-clyent==1.2.2
 colorama==0.4.1
 colorspacious==1.1.2
 colour==0.1.5
