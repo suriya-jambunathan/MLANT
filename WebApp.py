@@ -16,14 +16,6 @@ from src.constants import Wm, W0m, dm, tm, Rows, Xa, Ya
 
 import pyutilib.subprocess.GlobalData
 
-'''
-import signal
-origsignal = signal.signal
-signal.signal = lambda x, y: None
-from socketio.asyncio_server import AsyncServer
-signal.signal = origsignal
-'''
-
 import ptvsd
 #ptvsd.enable_attach(address=('localhost', 8501))
 
@@ -86,20 +78,6 @@ user_input = get_user_input()
 #Set a subheader and display user input
 st.subheader('User Input: ')
 st.write(user_input)
-
-'''
-#Store model predictions in a variable
-prediction = model.predict(user_input)
-
-#Set a subheader and display prediction
-st.subheader('Prediction: ')
-st.write(prediction)
-'''
-
-
-#"/Users/suriyaprakashjambunathan/WebApp.py"
-    
-
 
 import sys
 from streamlit import cli as stcli
