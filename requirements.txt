@@ -50,3 +50,4 @@ wget==3.2
 widgetsnbextension==3.5.1
 wrapt==1.11.2
 streamlit
+ptvsd
