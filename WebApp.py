@@ -14,17 +14,29 @@ import numpy as np
 from src.classes import *
 from src.constants import Wm, W0m, dm, tm, Rows, Xa, Ya
 
+import pyutilib.subprocess.GlobalData
+
+'''
+import signal
+origsignal = signal.signal
+signal.signal = lambda x, y: None
+from socketio.asyncio_server import AsyncServer
+signal.signal = origsignal
+'''
+
 import ptvsd
-ptvsd.enable_attach(address=('localhost', 8501))
+#ptvsd.enable_attach(address=('localhost', 8501))
 
 #Title and sub-title
+image = Image.open('Content/fyp_cst_ss.png')
+#st.set_page_config(page_title='M.L.A.N.T.', page_icon = image, layout = 'wide', initial_sidebar_state = 'auto')
 st.write("""
 # Antenna Prediction
 Find the dimensions for best performance
 """)
 
 #Open and display image on webapp
-image = Image.open('Content/fyp_cst_ss.png')
+
 st.image(image, caption = 'GA Class_reg', use_column_width = True)
 
 df = pd.read_csv('Content/antenna.csv')
