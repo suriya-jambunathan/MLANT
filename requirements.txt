@@ -2,11 +2,6 @@
 beautifulsoup4==4.8.0
 chromedriver==2.24.1
 Cython==0.29.13
-dash==1.20.0
-dash-core-components==1.16.0
-dash-html-components==1.1.3
-dash-renderer==1.9.1
-dash-table==4.11.3
 geneticalgorithm==1.0.2
 Keras-Applications==1.0.8
 Keras-Preprocessing==1.1.2
@@ -54,3 +49,4 @@ Werkzeug==1.0.1
 wget==3.2
 widgetsnbextension==3.5.1
 wrapt==1.11.2
+streamlit
