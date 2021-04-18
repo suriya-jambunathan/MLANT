@@ -1,4 +1,3 @@
-
 beautifulsoup4==4.8.0
 chromedriver==2.24.1
 Cython==0.29.13
@@ -49,3 +48,4 @@ widgetsnbextension==3.5.1
 wrapt==1.11.2
 streamlit
 ptvsd
+pyutilib
