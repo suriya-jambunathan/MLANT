@@ -11,8 +11,12 @@ import pandas as pd
 from PIL import Image
 import streamlit as st
 import numpy as np
-from src.classes import *
-from src.constants import Wm, W0m, dm, tm, Rows, Xa, Ya
+from itertools import compress
+import sys
+sys.path.append('src/')
+
+from classes import *
+from constants import Wm, W0m, dm, tm, Rows, Xa, Ya
 
 import pyutilib.subprocess.GlobalData
 
@@ -33,22 +37,23 @@ st.image(image, caption = 'GA Class_reg', use_column_width = True)
 
 df = pd.read_csv('Content/antenna.csv')
 
-st.subheader('Data Information: ')
+#st.subheader('Data Information: ')
 
 #Show the data as a table
-st.dataframe(df)
+#st.dataframe(df)
 
 #Show statistics on data
-st.write(df.describe())
+#st.write(df.describe())
 
 #Show the data as a chart
-chart = st.bar_chart(df)
+#chart = st.bar_chart(df)
 
 
 
 best = [2141.3747, 650.78, 214.13747, 77.0894892, 7, 1200, 2141.3747]
 
 #Get Feature inout from users
+
 def get_user_input():
     wm = st.sidebar.slider('Wm (in µm)', min_value = Wm[0], max_value = Wm[-1], value = best[0], step = (Wm[1] - Wm[0]))
     w0m  = st.sidebar.slider('W0m (in µm)', min_value = W0m[0], max_value = W0m[-1], value = best[1], step = (W0m[1] - W0m[0]))
@@ -76,8 +81,41 @@ def get_user_input():
 user_input = get_user_input()
 
 #Set a subheader and display user input
-st.subheader('User Input: ')
-st.write(user_input)
+#st.subheader('User Input: ')
+#st.write(user_input)
+
+'''
+'''
+
+feat_inds = [[True, False, True, True, True, True, True],
+             [True, False, True, False, True, True, True],
+             [True, False, True, True, True, True, True]]
+
+
+    
+    
+import joblib
+
+model = joblib.load('Content/trained_class_reg.sav')
+model = model[:3]
+
+#Store model predictions in a variable
+prediction = []
+for i in range(3):
+    prediction.append((model[i]).predict(list(compress(user_input, feat_inds[i] ))))
+
+
+#Set a subheader and display prediction
+st.subheader('Prediction: ')
+st.write("Bandwidth: " + str(prediction[0]))
+st.write("Gain: " + str(prediction[1]))
+st.write("VSWR: " + str(prediction[2]))
+
+
+
+#"/Users/suriyaprakashjambunathan/WebApp.py"
+    
+
 
 import sys
 from streamlit import cli as stcli
@@ -85,5 +123,6 @@ from streamlit import cli as stcli
 if __name__ == '__main__':
     sys.argv = ["streamlit", "run", "WebApp.py"]
     sys.exit(stcli.main())
+    
     
     
