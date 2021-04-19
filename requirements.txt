@@ -49,3 +49,4 @@ wrapt==1.11.2
 streamlit
 ptvsd
 pyutilib
+joblib
