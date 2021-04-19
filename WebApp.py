@@ -25,7 +25,7 @@ import ptvsd
 
 #Title and sub-title
 image = Image.open('Content/fyp_cst_ss.png')
-#st.set_page_config(page_title='M.L.A.N.T.', page_icon = image, layout = 'wide', initial_sidebar_state = 'auto')
+st.set_page_config(page_title='M.L.A.N.T.', page_icon = image, layout = 'wide', initial_sidebar_state = 'auto')
 st.write("""
 # Antenna Prediction
 Find the dimensions for best performance
